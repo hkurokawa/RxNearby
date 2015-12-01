@@ -25,3 +25,13 @@ proguard/
 
 # Log Files
 *.log
+
+# Signing files
+.signing/
+
+# User-specific configurations
+.idea
+*.iml
+
+# API Key
+#/rxnearby-sample/src/main/res/values/api_key.xml
