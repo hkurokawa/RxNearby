@@ -48,6 +48,7 @@ A sample app. to do a simple publish/subject task is under `/rxnearby-sample`
 ![rxnearby-sample](https://cloud.githubusercontent.com/assets/6446183/11506865/c5dca7d8-9894-11e5-8d0c-57952e299bd7.gif)
 
 # License
+```
 Copyright (C) 2015 Hiroshi Kurokawa
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -61,3 +62,4 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+```
