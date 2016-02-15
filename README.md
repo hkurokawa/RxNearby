@@ -1,6 +1,15 @@
 # RxNearby
 [Nearby](https://developers.google.com/nearby/) handling APIs for Android Apps using [RxJava](https://github.com/ReactiveX/RxJava)
 
+# Download
+In your app build.gradle, add
+
+```gradle
+dependencies {
+    compile 'com.hkurokawa.rxnearby:rxnearby:1.0.0'
+}
+```
+
 # Usage
 ## Nearby Messages
 ### Subscribe
