@@ -67,12 +67,12 @@ class MessagePublishOperator implements Observable.Operator<PublishResult, Messa
 
                     @Override
                     public void onConnectionSuspended(int causeCode) {
-                        child.onError(new ApiConnectionSuspendedException(causeCode));
+                        Exceptions.throwOrReport(new ApiConnectionSuspendedException(causeCode), MessagePublishSubscriber.this);
                     }
 
                     @Override
                     public void onConnectionFailed(ConnectionResult connectionResult) {
-                        child.onError(new ApiConnectionFailedException(connectionResult));
+                        Exceptions.throwOrReport(new ApiConnectionFailedException(connectionResult), MessagePublishSubscriber.this);
                     }
                 });
                 apiClient.connect();
@@ -98,7 +98,7 @@ class MessagePublishOperator implements Observable.Operator<PublishResult, Messa
 
                 @Override
                 public void onError(Status status) {
-                    child.onError(new ApiStatusException(status));
+                    Exceptions.throwOrReport(new ApiStatusException(status), MessagePublishSubscriber.this, message);
                 }
             });
         }
