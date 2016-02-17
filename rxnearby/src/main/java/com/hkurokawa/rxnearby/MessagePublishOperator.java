@@ -33,26 +33,17 @@ class MessagePublishOperator implements Observable.Operator<PublishResult, Messa
         private final ApiClientWrapper apiClient;
 
         public MessagePublishSubscriber(Subscriber<? super PublishResult> child, final ApiClientWrapper apiClient) {
+            super(child);
             this.apiClient = apiClient;
             this.child = child;
             init();
         }
 
         private void init() {
-            child.add(this);
-            child.add(new Subscription() {
+            add(new Subscription() {
                 @Override
                 public void unsubscribe() {
-                    apiClient.unpublish(new ApiClientWrapper.ResultHandler() {
-                        @Override
-                        public void onSuccess() {
-                        }
-
-                        @Override
-                        public void onError(Status status) {
-                            child.onError(new ApiStatusException(status));
-                        }
-                    });
+                    apiClient.unpublish();
                     apiClient.disconnect();
                 }
 

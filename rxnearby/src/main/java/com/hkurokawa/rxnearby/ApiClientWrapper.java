@@ -71,6 +71,10 @@ class ApiClientWrapper implements GoogleApiClient.ConnectionCallbacks, GoogleApi
         });
     }
 
+    public void unpublish() {
+        unpublish(null);
+    }
+
     public void unpublish(final ResultHandler handler) {
         if (publishingMessage != null) {
             Nearby.Messages.unpublish(apiClient, publishingMessage).setResultCallback(new ResultCallbackAdapter(handler));
